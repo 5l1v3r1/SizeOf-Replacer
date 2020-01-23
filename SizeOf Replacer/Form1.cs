@@ -125,6 +125,54 @@ namespace SizeOf_Replacer
                 thr.Start();
             }
         }
+        OpCode rakamOpcode(int sayi)
+        {
+            OpCode result = OpCodes.Ldc_I4;
+            switch (sayi)
+            {
+                case 0:
+                    result = OpCodes.Ldc_I4_0;
+                    break;
+                case 1:
+                    result = OpCodes.Ldc_I4_1;
+                    break;
+                case 2:
+                    result = OpCodes.Ldc_I4_2;
+                    break;
+                case 3:
+                    result = OpCodes.Ldc_I4_3;
+                    break;
+                case 4:
+                    result = OpCodes.Ldc_I4_4;
+                    break;
+                case 5:
+                    result = OpCodes.Ldc_I4_5;
+                    break;
+                case 6:
+                    result = OpCodes.Ldc_I4_6;
+                    break;
+                case 7:
+                    result = OpCodes.Ldc_I4_7;
+                    break;
+                case 8:
+                    result = OpCodes.Ldc_I4_8;
+                    break;
+
+            }
+            return result;
+        }
+        public static int GetManagedSize(Type type)
+        {
+            var method = new System.Reflection.Emit.DynamicMethod("GetManagedSizeImpl", typeof(uint), null);
+
+            System.Reflection.Emit.ILGenerator gen = method.GetILGenerator();
+
+            gen.Emit(System.Reflection.Emit.OpCodes.Sizeof, type);
+            gen.Emit(System.Reflection.Emit.OpCodes.Ret);
+
+            var func = (Func<uint>)method.CreateDelegate(typeof(Func<uint>));
+            return checked((int)func());
+        }
         public void CodeBlock()
         {
             try
@@ -140,15 +188,46 @@ namespace SizeOf_Replacer
 
                         for (int i = 0; i < method.Body.Instructions.Count; i++)
                         {
+
                             if (method.Body.Instructions[i].OpCode == OpCodes.Sizeof)
                             {
-                                int value = ReturnSizeOf(method.Body.Instructions[i].Operand.ToString());
-                                method.Body.Instructions[i].OpCode = OpCodes.Ldc_I4;
-                                method.Body.Instructions[i].Operand = value;
+                                try
+                                {
+                                    if (Type.GetType(method.Body.Instructions[i].Operand.ToString()) != null)
+                                    {
 
-                                i += 1;
-                                decrypted++;
+                                        int temp = GetManagedSize(Type.GetType(method.Body.Instructions[i].Operand.ToString()));
+                                        if (temp <= 8)
+                                        {
+                                            method.Body.Instructions[i].OpCode = rakamOpcode(temp);
+                                            decrypted += 1;
+                                        }
+                                        else
+                                        {
+                                            method.Body.Instructions[i].OpCode = OpCodes.Ldc_I4;
+                                            method.Body.Instructions[i].Operand = temp;
+                                            decrypted += 1;
+                                        }
+
+                                    }
+                                }
+                                catch (Exception)
+                                {
+
+
+                                }
+
+
                             }
+                            //if (method.Body.Instructions[i].OpCode == OpCodes.Sizeof)
+                            //{
+                            //    int value = ReturnSizeOf(method.Body.Instructions[i].Operand.ToString());
+                            //    method.Body.Instructions[i].OpCode = OpCodes.Ldc_I4;
+                            //    method.Body.Instructions[i].Operand = value;
+
+                            //    i += 1;
+                            //    decrypted++;
+                            //}
                         }
 
                     }

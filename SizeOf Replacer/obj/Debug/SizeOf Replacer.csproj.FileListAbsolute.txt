@@ -10,3 +10,14 @@ C:\Users\root\source\repos\SizeOf Replacer\SizeOf Replacer\obj\Debug\SizeOf Repl
 C:\Users\root\source\repos\SizeOf Replacer\SizeOf Replacer\obj\Debug\SizeOf Replacer.pdb
 C:\Users\root\source\repos\SizeOf Replacer\SizeOf Replacer\bin\Debug\dnlib.dll
 C:\Users\root\source\repos\SizeOf Replacer\SizeOf Replacer\obj\Debug\SizeOf Replacer.csproj.CopyComplete
+C:\Users\o_O\Desktop\SizeOf-Replacer-master\SizeOf Replacer\bin\Debug\SizeOf Replacer.exe.config
+C:\Users\o_O\Desktop\SizeOf-Replacer-master\SizeOf Replacer\bin\Debug\SizeOf Replacer.exe
+C:\Users\o_O\Desktop\SizeOf-Replacer-master\SizeOf Replacer\bin\Debug\SizeOf Replacer.pdb
+C:\Users\o_O\Desktop\SizeOf-Replacer-master\SizeOf Replacer\obj\Debug\SizeOf Replacer.csprojAssemblyReference.cache
+C:\Users\o_O\Desktop\SizeOf-Replacer-master\SizeOf Replacer\obj\Debug\SizeOf_Replacer.Form1.resources
+C:\Users\o_O\Desktop\SizeOf-Replacer-master\SizeOf Replacer\obj\Debug\SizeOf_Replacer.Properties.Resources.resources
+C:\Users\o_O\Desktop\SizeOf-Replacer-master\SizeOf Replacer\obj\Debug\SizeOf Replacer.csproj.GenerateResource.cache
+C:\Users\o_O\Desktop\SizeOf-Replacer-master\SizeOf Replacer\obj\Debug\SizeOf Replacer.csproj.CoreCompileInputs.cache
+C:\Users\o_O\Desktop\SizeOf-Replacer-master\SizeOf Replacer\obj\Debug\SizeOf Replacer.csproj.CopyComplete
+C:\Users\o_O\Desktop\SizeOf-Replacer-master\SizeOf Replacer\obj\Debug\SizeOf Replacer.exe
+C:\Users\o_O\Desktop\SizeOf-Replacer-master\SizeOf Replacer\obj\Debug\SizeOf Replacer.pdb
